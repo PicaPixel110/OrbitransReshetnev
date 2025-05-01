@@ -3,18 +3,179 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrbitransReshetnev"
+        xmlns:vm="clr-namespace:OrbitransReshetnev.ViewModel"
+        xmlns:Menu="clr-namespace:OrbitransReshetnev.Utilities"
         mc:Ignorable="d"
-        Title="MainWindow" 
         Height="572" 
         Width="1024"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        ResizeMode="CanResize"
         Background="Transparent">
-    <Grid>
-        
-        
-        
+
+    
+    
+    <Window.DataContext>
+        <vm:NavigationMV />
+    </Window.DataContext>
+
+    <Grid MouseDown="Window_MouseDown">
+
+        <Border CornerRadius="15" />
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="844"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid HorizontalAlignment="Left"
+                  Width="180">
+
+                <Border Background="#1C1C1C"
+            CornerRadius="15,0,0,15" />
+
+                <StackPanel Width="180"
+                            Height="93"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+
+                    <Grid Height="80">
+                        <Menu:Btn Style="{StaticResource BtnStyleLogo}"
+                                  Command="{Binding HomeCommand}"
+                                  IsChecked="True"
+                                  Background="#1C1C1C">
+
+                            <Grid >
+                                <Image Source="Images/Logo.png"
+                                       Width="28"
+                                       Height="26"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Orbitrans"
+                                           FontSize="18"
+                                           Foreground="White"
+                                           FontFamily="Michroma"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="-30,0,0,0"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                    </Grid>
+
+                    <Line
+                        X2="170"
+                        Stroke="#414141"
+                        StrokeThickness="3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Width="160"
+                        Margin="0,10,0,0"/>
+
+                </StackPanel>
+
+                <StackPanel Height="370"
+                                Width="180">
+
+                    <TextBlock Text="Навигация"
+                                   FontSize="14"
+                                   Foreground="#BCBCBC"
+                                   Margin="10,0,0,0"/>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                  Command="{Binding PaymentOderCommand}"
+                  IsChecked="False">
+
+                        <Grid>
+
+                            <Image Source="Images/IconPP.png"
+                       Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Работа с платежными поручениями"
+                           Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding BankCommand}"
+                              IsChecked="False">
+
+                        <Grid>
+
+                            <Image Source="Images/IconBank.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Справочник банков"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding PredCommand}"
+                              IsChecked="False">
+
+                        <Grid>
+
+                            <Image Source="Images/IconPred.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Справочник Предприятий"
+                                       Style="{StaticResource Text_Style}" Margin="40,0,0,0" Width="140" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command=""
+                              IsChecked="False">
+
+                        <Grid>
+
+                            <Image Source="Images/IconReports.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Отчеты"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <ContentControl x:Name="Pages"
+            Content="{Binding CurrentView}" />
+
+            </Grid>
+
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,10,0">
+            <!-- Кнопка свёртывания -->
+            <Button x:Name="MinimizeButton" Width="40" Height="40" Content="🗕"
+                        Style="{StaticResource WindowControlButtonStyle}"
+                        Click="MinimizeButton_Click"
+                    VerticalAlignment="Top"/>
+            <!-- Кнопка закрытия -->
+            <Button x:Name="CloseButton" Width="40" Height="40" Content="🗙"
+                        Style="{StaticResource WindowControlButtonStyle}"
+                        Click="CloseButton_Click"
+                    VerticalAlignment="Top"/>
+        </StackPanel>
+
     </Grid>
 </Window>

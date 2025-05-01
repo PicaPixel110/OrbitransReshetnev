@@ -4,6 +4,21 @@
              xmlns:local="clr-namespace:OrbitransReshetnev"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Styles/Pages.xaml"/>
+                <ResourceDictionary Source="Styles/Image.xaml"/>
+                <ResourceDictionary Source="Styles/Button.xaml"/>
+                <ResourceDictionary Source="Styles/LogoButton.xaml"/>
+                <ResourceDictionary Source="Styles/Text.xaml"/>
+                <ResourceDictionary Source="Utilities/DataTemplate.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>

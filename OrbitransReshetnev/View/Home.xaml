@@ -1,0 +1,230 @@
+﻿<UserControl x:Class="OrbitransReshetnev.View.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:OrbitransReshetnev.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="572" d:DesignWidth="844"
+             >
+
+    <UserControl.DataContext>
+        <vm:HomeMV />
+    </UserControl.DataContext>
+
+
+    <Grid>
+        <Border CornerRadius="0,15,15,0" Background="#EDEDED" >
+            <Image Source="/Images/astronaut 1.png" Stretch="Uniform" 
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Bottom" 
+                   Height="408" Width="454"/>
+        </Border>
+
+        <StackPanel>
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <!-- Иконка даты -->
+                    <Image Source="/Images/IconDate.png" 
+                           Stretch="Uniform" 
+                           Height="20" 
+                           Width="18" 
+                           Margin="0,50,5,15"/>
+
+                    <!-- Текст даты -->
+                    <TextBlock Text="{Binding DisplayDate}"
+                               Foreground="#000000"
+                               FontSize="16"
+                               FontFamily="Play"
+                               Margin="5,50,0,15"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Orientation="Vertical">
+                <Border Width="759"
+                        Height="153"
+                        Background="#FFFFFF">
+
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10"
+                                           RadiusY="10"
+                                           Rect="0,0,759,153"/>
+                    </Border.Clip>
+
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Добро пожаловать, Степан!"
+                                       FontFamily="Square721 BdEx BT [Rus by me]"
+                                       Foreground="#000000"
+                                       FontSize="24"
+                                       Margin="20,30,200,0"
+                                       TextWrapping="Wrap"/>
+
+                            <Image Source="/Images/LogoFull.png" 
+                                   Stretch="Uniform" HorizontalAlignment="Right" 
+                                   Height="40"
+                                   Width="162" 
+                                   Margin="0,-30,20,0"/>
+
+                            <TextBlock Text="{Binding DisplayDate}"
+                                       FontFamily="Play"
+                                       Foreground="#000000"
+                                       FontSize="20"
+                                       Margin="20,2,400,0"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock Text="{Binding CurrencyRates}"
+                                       FontFamily="Play"
+                                       Foreground="#000000"
+                                       FontSize="20"
+                                       Margin="20,10,400,0"
+                                       TextWrapping="Wrap"/>
+
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <StackPanel>
+
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Margin" Value="15,0,0,0" />
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="42.5,30,0,0">
+
+                    <Button x:Name="PlatPoruchBtn"
+                            Style="{StaticResource MainWindowButtonStyle}"
+                            Click="PlatPoruchBtn_Click" >
+                        <Border Width="228"
+                                Height="84"
+                                Background="White"
+                                CornerRadius="10"
+                                Margin="0">
+
+                            <Grid>
+                                <StackPanel>
+                                    <Image Source="/Images/IconPPFull.png"
+                                           Stretch="Uniform" 
+                                           HorizontalAlignment="Left"  
+                                           Height="38" 
+                                           Width="31"
+                                           Margin="15,25,10,0"/>
+
+                                    <TextBlock Text="Работа с Платежными поручениями"
+                                               TextWrapping="Wrap"
+                                               FontSize="16"
+                                               FontFamily="Play"
+                                               Foreground="Black"
+                                               HorizontalAlignment="Left"
+                                               Margin="55,-35,0,0"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Border>
+                    </Button>
+
+                    <Border Width="228"
+                                Height="84"
+                                Background="White"
+                                CornerRadius="10">
+
+                            <Grid>
+                                <StackPanel>
+                                    <Image Source="/Images/IconPPFull.png"
+                                           Stretch="Uniform" 
+                                           HorizontalAlignment="Left"  
+                                           Height="38" 
+                                           Width="31"
+                                           Margin="15,25,10,0"/>
+
+                                    <TextBlock Text="Отчеты"
+                                               TextWrapping="Wrap"
+                                               FontSize="16"
+                                               FontFamily="Play"
+                                               Foreground="Black"
+                                               HorizontalAlignment="Left"
+                                               Margin="55   ,-26,0,0"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Border>
+
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Margin" Value="15,0,0,0" />
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <StackPanel Orientation="Horizontal"
+                Margin="42.5,10,0,0">
+
+                        <Border Width="228"
+                                Height="84"
+                                Background="White"
+                                CornerRadius="10"
+                                Margin="0">
+
+                            <Grid>
+                                <StackPanel>
+                                    <Image Source="/Images/IconBankFull.png"
+                                           Stretch="Uniform" 
+                                           HorizontalAlignment="Left"  
+                                           Height="38" 
+                                           Width="31"
+                                           Margin="15,20,10,0"/>
+
+                                    <TextBlock Text="Справочник банков"
+                                               TextWrapping="Wrap"
+                                               FontSize="16"
+                                               FontFamily="Play"
+                                               Foreground="Black"
+                                               HorizontalAlignment="Left"
+                                               Margin="55,-26,0,0"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Border>
+
+                        <Border Width="228"
+                                Height="84"
+                                Background="White"
+                                CornerRadius="10">
+
+                            <Grid>
+                                <StackPanel>
+                                    <Image Source="/Images/IconPredFull.png"
+                                           Stretch="Uniform" 
+                                           HorizontalAlignment="Left"  
+                                           Height="38" 
+                                           Width="31"
+                                           Margin="15,20,10,0"/>
+
+                                    <TextBlock Text="Справочник предприятий"
+                                               TextWrapping="Wrap"
+                                               FontSize="16"
+                                               FontFamily="Play"
+                                               Foreground="Black"
+                                               HorizontalAlignment="Left"
+                                               Margin="55,-35,0,0"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Border>
+
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+
+    </Grid>
+</UserControl>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrbitransReshetnev.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,28 @@ namespace OrbitransReshetnev
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Совместимый с C# 7.3 способ проверки типов
+                if (!(e.OriginalSource is Button || e.OriginalSource is TextBox || e.OriginalSource is ComboBox))
+                {
+                    DragMove();
+                }
+            }
         }
     }
 }
